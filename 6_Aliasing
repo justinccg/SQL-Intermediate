@@ -1,0 +1,39 @@
+--Source: https://www.youtube.com/watch?v=Dk7he_yEs4U&list=PLUaB-1hjhk8HTgPnBukmMq7QTe83ANirL&index=6
+
+--Note:It will be helpful for evaluating large scripts.  
+--We could use AS as ‘Alias name or simply space after the column name will be sufficient enough.
+
+
+--Step 1: Identify a table 
+
+Select * From employeedemographics 
+
+--Step 2: Method 1 Aliasing a column name
+
+Select FirstName as Fname From employeedemographics 
+
+--Step 3: Method 2 ( Club 2 columns)
+
+Select FirstName+' '+LastName AS FullName
+From employeedemographics 
+
+--Step 4: Aliasing a table name
+
+Select Demo.EmployeeID,Sal.Salary
+FROM Employeedemographics as Demo
+INNER JOIN
+EmployeeSalary as Sal
+On 
+Demo.EmployeeID=Sal.EmployeeID
+
+--Step 5: A little more complex query
+
+Select Demo.EmployeeID,Demo.FirstName, Sal.JobTitle, Ware.Age
+FROM EmployeeDemographics Demo
+LEFT JOIN EmployeeSalary Sal
+ON
+Demo.EmployeeID=Sal.EmployeeID
+LEFT JOIN WareHouseEmployeeDemographics Ware
+ON 
+Demo.EmployeeID=Ware.EmployeeID
+
