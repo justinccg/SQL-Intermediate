@@ -1,4 +1,5 @@
-able 1 Query:
+Step 1: Create a table 1
+
 Create Table EmployeeDemographics 
 (EmployeeID int, 
 FirstName varchar(50), 
@@ -7,16 +8,8 @@ Age int,
 Gender varchar(50)
 )
 
-Table 2 Query:
-Create Table EmployeeSalary 
-(EmployeeID int, 
-JobTitle varchar(50), 
-Salary int
-)
+Step 2: Add information to table 1
 
-
-
-Table 1 Insert:
 Insert into EmployeeDemographics VALUES
 (1001, 'Jim', 'Halpert', 30, 'Male'),
 (1002, 'Pam', 'Beasley', 30, 'Female'),
@@ -28,7 +21,18 @@ Insert into EmployeeDemographics VALUES
 (1008, 'Stanley', 'Hudson', 38, 'Male'),
 (1009, 'Kevin', 'Malone', 31, 'Male')
 
-Table 2 Insert:
+
+Step 3: Create second table
+
+Create Table EmployeeSalary 
+(EmployeeID int, 
+JobTitle varchar(50), 
+Salary int
+)
+
+
+Step 4: Add information to second table
+
 Insert Into EmployeeSalary VALUES
 (1001, 'Salesman', 45000),
 (1002, 'Receptionist', 36000),
@@ -41,27 +45,36 @@ Insert Into EmployeeSalary VALUES
 (1009, 'Accountant', 42000)
 
 
-Table 2 Insert:
-Insert Into EmployeeSalary VALUES
-(1001, 'Salesman', 45000),
-(1002, 'Receptionist', 36000),
-(1003, 'Salesman', 63000),
-(1004, 'Accountant', 47000),
-(1005, 'HR', 50000),
-(1006, 'Regional Manager', 65000),
-(1007, 'Supplier Relations', 41000),
-(1008, 'Salesman', 48000),
-(1009, 'Accountant', 42000)
+Step 5: query all the data from 2 different tables
 
-Table 2 Insert:
-Insert Into EmployeeSalary VALUES
-(1001, 'Salesman', 45000),
-(1002, 'Receptionist', 36000),
-(1003, 'Salesman', 63000),
-(1004, 'Accountant', 47000),
-(1005, 'HR', 50000),
-(1006, 'Regional Manager', 65000),
-(1007, 'Supplier Relations', 41000),
-(1008, 'Salesman', 48000),
-(1009, 'Accountant', 42000)
+Select * from EmployeeDemographics
+
+Select * from EmployeeSalary
+
+
+Step 6: use different joins like inner join,left join, right join and full outer join in these 2 tables use following queries.
+
+
+Select *
+from EmployeeDemographics
+left join -- Use inner join,left join, right join and full outer join in this line
+EmployeeSalary
+on
+EmployeeDemographics.EmployeeID=EmployeeSalary.EmployeeID
+
+
+Note: Since the employeeID present in both table are same, output of all joins looks the same.
+
+Step 7: Add more information at table 1
+
+Insert into EmployeeDemographics VALUES
+(1011, 'Ryan', 'Howard', 26, 'Male'),
+(NULL, 'Holly', 'Flax', NULL, NULL),
+(1013, 'Darryl', 'Philbin', NULL, 'Male')
+
+Step 8; repeat step 6 again and observe the difference in output.
+
+
+
+
 
