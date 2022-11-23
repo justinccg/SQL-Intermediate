@@ -1,0 +1,16 @@
+Source: https://www.youtube.com/watch?v=Twusw__OzA8&list=PLUaB-1hjhk8HTgPnBukmMq7QTe83ANirL&index=3
+
+Step 1 : Select table 1 for applying the case statement
+
+select * from EmployeeDemographics
+
+Note: Observed that 10 row have proper age mentioned and 2 rows are with NULL Values.
+
+Step 2: Exclude the NULL Values from the Age column
+
+Select FirstName,LastName, Age
+FROM Employeedemographics
+WHERE Age is NOT NULL
+ORDER BY Age
+
+Step 3: 
