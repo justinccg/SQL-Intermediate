@@ -65,16 +65,16 @@ on
 EmployeeDemographics.EmployeeID=EmployeeSalary.EmployeeID
 
 
-Note: Since the employeeID present in both table are same, output of all joins looks the same.
+--Note: Since the employeeID present in both table are same, output of all joins looks the same.
 
-Step 7: Add more information at table 1
+--Step 7: Add more information at table 1
 
 Insert into EmployeeDemographics VALUES
 (1011, 'Ryan', 'Howard', 26, 'Male'),
 (NULL, 'Holly', 'Flax', NULL, NULL),
 (1013, 'Darryl', 'Philbin', NULL, 'Male')
 
-Step 8; repeat step 6 again and observe the difference in output.
+--Step 8; repeat step 6 again and observe the difference in output.
 
 
 
