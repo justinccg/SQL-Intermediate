@@ -27,7 +27,7 @@ select * from WareHouseEmployeeDemographics
 --Step 4: Create a UNION
 
 --Note: it identifies the ID's which are present in both the tables and exclude the remaining one. 
---If the items in the 2 tables are the same, it makes sense to use union. Otherwise, the result may not sound reasonable. 
+--If the items in the 2 tables are the same, it makes no sense/ change when we use union. Otherwise, the result may not sound reasonable. 
 --Union is like a distinct statement by removing all the duplicate values.
 --On the other hand, UNION ALL creates a single selection including all the information from Table 1 and Table 2 by considering the duplicates also.Simply copy paste 2 --tables together.
 
