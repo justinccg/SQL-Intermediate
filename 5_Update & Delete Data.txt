@@ -1,0 +1,42 @@
+--Insert: It will create a new row in our table
+--Update: It will update the existing row
+--Delete: It says which row we have to delete from the table
+
+--Step 1
+Select * From employeedemographics 
+
+--Step 2: Change the value to 1012 for a row which having 
+
+--Caution: (Update Employeedemographics SET EmployeeID=1012) if we run this query, all employee ID's will be updated as 1012
+
+Update Employeedemographics
+SET EmployeeID=1012
+WHERE FirstName='Holly' And LastName='Flax'
+
+--Step3: Verify whether value updated properly or not
+
+Select * From employeedemographics 
+
+--Step 4 : Apply second update and verify using step 3
+
+Update Employeedemographics
+SET Age=31, Gender='Female'
+WHERE FirstName='Holly' And LastName='Flax'
+
+--Step 5 : Delete a single row having ID as 1005 and verify using step 3
+
+DELETE 
+From
+Employeedemographic
+Where EmployeeID=1005
+
+--Step 6
+
+--There is no way to reverse the delete statement. In order to protect the sheet, better to use the following before performing delete
+
+select * from employeedemographic where employeeID= 1004
+
+--Step 7
+
+Delete * from employeedemographic where employeeID= 1004
+
