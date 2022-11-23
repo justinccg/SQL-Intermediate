@@ -1,16 +1,95 @@
-Source: https://www.youtube.com/watch?v=Twusw__OzA8&list=PLUaB-1hjhk8HTgPnBukmMq7QTe83ANirL&index=3
+--Source: https://www.youtube.com/watch?v=Twusw__OzA8&list=PLUaB-1hjhk8HTgPnBukmMq7QTe83ANirL&index=3
 
-Step 1 : Select table 1 for applying the case statement
+--Step 1 : Select table 1 for applying the case statement
 
-select * from EmployeeDemographics
+Select * from EmployeeDemographics
 
-Note: Observed that 10 row have proper age mentioned and 2 rows are with NULL Values.
+--Note: Observed that 10 row have proper age mentioned and 2 rows are with NULL Values.
 
-Step 2: Exclude the NULL Values from the Age column
+--Step 2: Exclude the NULL Values from the Age column
 
 Select FirstName,LastName, Age
 FROM Employeedemographics
 WHERE Age is NOT NULL
 ORDER BY Age
 
-Step 3: 
+--Step 3: Use Case statement for this, 2 ways of writing the statement are mentioned
+
+Select FirstName,LastName,Age,
+(CASE
+WHEN Age > 30 THEN 'Old'
+ELSE 'Young'
+END) as Category
+FROM Employeedemographics
+WHERE Age is NOT NULL
+ORDER BY Age 
+
+
+Select FirstName,LastName,Age,
+CASE
+	WHEN Age > 30 THEN 'Old'
+	ELSE 'Young'
+END as Category
+FROM Employeedemographics
+WHERE Age is NOT NULL
+ORDER BY Age
+
+--Step4: Apply multiple conditions in a single case statement
+
+Select FirstName,LastName,Age,
+CASE
+	WHEN Age > 30 THEN 'Old'
+	WHEN Age BETWEEN 27 and 30 THEN 'Young'
+	ELSE 'Baby'
+END as Category
+FROM Employeedemographics
+WHERE Age is NOT NULL
+ORDER BY Age 
+
+--Step 5: Evaluate the sequence of operation of multiple condition check
+
+Select FirstName,LastName,Age,
+CASE
+	WHEN Age>30 THEN 'Old'
+	WHEN Age = 38 THEN 'Stanley'
+	ELSE 'Baby'
+END
+FROM Employeedemographics
+WHERE Age is NOT NULL
+ORDER BY Age
+
+--Note; Since the first condition was already met, second condition did not process.
+
+--Step 6: The difference in output, if the order of the condition were changed
+
+Select FirstName,LastName,Age,
+CASE
+	WHEN Age = 38 THEN 'Stanley'
+	WHEN Age>30 THEN 'Old'
+	ELSE 'Baby'
+END
+FROM Employeedemographics
+WHERE Age is NOT NULL
+ORDER BY Age
+
+--Step 7: Joining two table to apply different condition
+
+Select FirstName,LastName,JobTitle,Salary
+FROM employeedemographics
+Join employeesalary
+ON Employeedemographics.EmployeeID= Employeesalary.EmployeeID
+
+--Step 8: Giving a salary increment for different catergory of people
+
+Select FirstName,LastName,JobTitle,Salary,
+CASE 
+	WHEN JobTitle='Salesman' THEN Salary +(Salary*.10)
+	WHEN JobTitle='Accountant' THEN Salary +(Salary*.05)
+	WHEN JobTitle='HR' THEN Salary +(Salary*.000001)
+	ELSE Salary+(Salary*.03)
+END AS SalaryAfterRaise 
+FROM employeedemographics
+Join Employeesalary
+ON Employeedemographics.EmployeeID= Employeesalary.EmployeeID
+
+
