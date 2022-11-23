@@ -1,0 +1,50 @@
+--Step1: Arrange a table 
+
+Select * from EmployeeSalary
+
+--Step2: Use a groupby statement 
+
+Select JobTitle, count(JobTitle)
+From EmployeeSalary 
+Group By jobTitle
+
+--Step3: Use a aggregate function in a where clause and evaluate the error message in the note.
+-- Objective is to find the Jobtitle which are more than one person
+
+Select JobTitle, count(JobTitle)
+From EmployeeSalary 
+Where COUNT(JobTitle)>1
+Group By JobTitle
+
+--Note: An aggregate may not appear in the WHERE clause unless it is in a subquery contained in a HAVING clause or a select list, and the column being aggregated is an outer reference.
+
+--Step4: Introduce Having clause before group by statement instead of where clause and evaluate the error message at the note.
+
+Select JobTitle, count(JobTitle)
+From EmployeeSalary 
+Having COUNT(JobTitle)>1
+Group By JobTitle
+
+--Note: Incorrect syntax near 'COUNT'.Since the Having clause completely dependent on group by statement, group by needs to executed first.
+
+--Step5: Introduce having Clause after the group by statement
+
+Select JobTitle, count(JobTitle)
+From EmployeeSalary 
+Group By JobTitle
+Having COUNT (JobTitle) >1
+
+--Step6: Identify AVG salart per Job title
+
+Select JobTitle, AVG(salary)
+From EmployeeSalary 
+Group By JobTitle
+Order by AVG (Salary)
+
+--Step7: Identify the AVG(Salary) more than 45000
+
+Select JobTitle, AVG(salary)
+From EmployeeSalary 
+Group By JobTitle
+Having AVG (Salary)>45000
+Order by AVG (Salary)
