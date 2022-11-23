@@ -1,3 +1,5 @@
+--Source: https://www.youtube.com/watch?v=tYBOMw7Ob8E&list=PLUaB-1hjhk8HTgPnBukmMq7QTe83ANirL&index=4
+
 --Step1: Arrange a table 
 
 Select * from EmployeeSalary
@@ -34,14 +36,14 @@ From EmployeeSalary
 Group By JobTitle
 Having COUNT (JobTitle) >1
 
---Step6: Identify AVG salart per Job title
+--Step6: Identify AVG salary for different Job title
 
 Select JobTitle, AVG(salary)
 From EmployeeSalary 
 Group By JobTitle
 Order by AVG (Salary)
 
---Step7: Identify the AVG(Salary) more than 45000
+--Step7: Identify the Job Titles which are having AVG(Salary) more than 45000
 
 Select JobTitle, AVG(salary)
 From EmployeeSalary 
