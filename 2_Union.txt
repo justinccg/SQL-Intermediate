@@ -1,6 +1,6 @@
-Source: https://www.youtube.com/watch?v=lYKkro6rKm0&list=PLUaB-1hjhk8HTgPnBukmMq7QTe83ANirL&index=2
+--Source: https://www.youtube.com/watch?v=lYKkro6rKm0&list=PLUaB-1hjhk8HTgPnBukmMq7QTe83ANirL&index=2
 
-Step 1: Create Third table 
+--Step 1: Create Third table 
 
 Create Table WareHouseEmployeeDemographics 
 (EmployeeID int, 
@@ -10,7 +10,7 @@ Age int,
 Gender varchar(50)
 )
 
-Step 2: Add information to it
+--Step 2: Add information to it
 
 Insert into WareHouseEmployeeDemographics VALUES
 (1013, 'Darryl', 'Philbin', NULL, 'Male'),
@@ -18,18 +18,18 @@ Insert into WareHouseEmployeeDemographics VALUES
 (1051, 'Hidetoshi', 'Hasagawa', 40, 'Male'),
 (1052, 'Val', 'Johnson', 31, 'Female')
 
-Step 3: Evaluate 2 nos of tables before creating union query. 
+--Step 3: Evaluate 2 nos of tables before creating union query. 
 
 select * from EmployeeDemographics
 
 select * from WareHouseEmployeeDemographics
 
-Step 4: Create a UNION
+--Step 4: Create a UNION
 
-Note: it identifies the ID's which are present in both the tables and exclude the remaining one. 
-If the items in the 2 tables are the same, it makes sense to use union. Otherwise, the result may not sound reasonable. 
-Union is like a distinct statement by removing all the duplicate values.
-On the other hand, UNION ALL creates a single selection including all the information from Table 1 and Table 2 by considering the duplicates also.Simply copy paste 2 tables together.
+--Note: it identifies the ID's which are present in both the tables and exclude the remaining one. 
+--If the items in the 2 tables are the same, it makes sense to use union. Otherwise, the result may not sound reasonable. 
+--Union is like a distinct statement by removing all the duplicate values.
+--On the other hand, UNION ALL creates a single selection including all the information from Table 1 and Table 2 by considering the duplicates also.Simply copy paste 2 --tables together.
 
 SELECT * 
 from 
@@ -38,7 +38,7 @@ UNION
 SELECT * FROM WareHouseEmployeeDemographics
 order by EmployeeID
 
-Step 5: Create a UNOIN between table 1 and table 2 which are having different set of columns.
+--Step 5: Create a UNOIN between table 1 and table 2 which are having different set of columns.
 
 Select EmployeeID, FirstName, Age
 From Employeedemographics
@@ -47,9 +47,9 @@ Select EmployeeID, JobTitle, Salary
 From EmployeeSalary
 Order by EmployeeID
 
-Note: Observe the weird outcome received from this query.
+--Note: Observe the weird outcome received from this query.
 
-Step 6: Observe the result if we select all instead of specific number of columns
+--Step 6: Observe the result if we select all instead of specific number of columns
 
 Select *
 From Employeedemographics
@@ -58,7 +58,7 @@ Select *
 From EmployeeSalary
 Order by EmployeeID
 
-Step 7: UNION ALL
+--Step 7: UNION ALL
 
 
 Select EmployeeID, FirstName, Age
@@ -68,7 +68,7 @@ Select EmployeeID, JobTitle, Salary
 From EmployeeSalary
 Order by EmployeeID
 
-Note: JobTitle of the second table has considered as First name in the Union all statement.
+--Note: JobTitle of the second table has considered as First name in the Union all statement.
 
 EmployeeID	FirstName	Age
 NULL	Holly	NULL
